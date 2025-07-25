@@ -6,18 +6,18 @@ export const useTodoStore = defineStore("todo", {
   }),
   actions: {
     addTask(text) {
-      this.tasks.push({ text, done: false });
+      this.tasks.push({ text, done: false }); // adds a new task
     },
     toggleTask(index) {
-      this.tasks[index].done = !this.task[index].done;
+      this.tasks[index].done = !this.tasks[index].done; // flips done/undone
     },
     removeTask(index) {
-      this.task.splice(index, 1);
+      this.tasks.splice(index, 1); // removes task by index
     },
   },
   getters: {
-    remainingTask(state) {
-      return state.tasks.filter((t) => !t.done);
+    remainingTasks(state) {
+      return state.tasks.filter((t) => !t.done); // gets only tasks not done
     },
   },
 });
